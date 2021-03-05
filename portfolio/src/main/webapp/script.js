@@ -27,9 +27,13 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 async function showServerTime() {
+    console.log("At the top of the function.")
   const responseFromServer = await fetch('/My-Portfolio');
-  const textFromResponse = await responseFromServer.text();
-
+  const textFromResponse = await responseFromServer.json();
+  console.log(textFromResponse)
   const dateContainer = document.getElementById('text-container');
-  dateContainer.innerText = textFromResponse;
+  const random_greeting = Math.floor(Math.random() * 3);
+  dateContainer.innerText = textFromResponse[random_greeting];
+
+
 }

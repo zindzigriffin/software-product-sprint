@@ -26,3 +26,10 @@ function addRandomGreeting() {
   const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
+async function showServerTime() {
+  const responseFromServer = await fetch('/My-Portfolio');
+  const textFromResponse = await responseFromServer.text();
+
+  const dateContainer = document.getElementById('text-container');
+  dateContainer.innerText = textFromResponse;
+}
